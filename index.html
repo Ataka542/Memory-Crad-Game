@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+     </style>
+     <title>Memory Card Game</title>
+     <link rel="stylesheet" href="style.css">
+     <!--<link href="https://fonts.goggleapis.com/css2?family=sriracha&display=swap" rel="stylesheet">-->
+
+</head>
+<style>
+</style>
+<body>
+     
+     <div id="first-box">
+          <div>
+               <img src="Frame.png">
+               <button onclick="goToMenu()">Start</button>
+          </div>
+     </div>
+
+<!---THE MENU BOX FOR NAVIGATING TO DIFFERENT SCTIONS OF THE GAME--->
+     <div class="menu" id="menu">
+          <p class="logo"><img src="Frame.png"></p>
+          <div class="play-btn">
+               <button onclick="playGame()"><div class="play-icon"></div></button>
+          </div>          
+          
+          <div class="buttons">
+               <button onclick="displaySettingsContainer()" id="score">
+                    <img src="Frame_2.png">
+               </button>
+               <!--<button onclick="" id="a"></button>--->
+               <button onclick="howToPlay()" id="help">
+                    <img src="Frame_1.png">
+               </button>
+          </div>
+     </div>
+     
+     
+<!---THE MAIN GAME BOX FOR PLAYING GAME-->
+     <div id="close">
+          <div class="nav-bar" id="nav-bar">
+               <!--<button style="background:linear-gradient(135deg, #8FFF33, #419100);border:solid 3px #2C6100;color:white;" onclick="pauseGame()">
+                    <img src="pauseImg.png">
+               </button>-->
+               <span style="padding-top:10px;">
+                    Moves:<label id="moves">10</label>
+               </span>               
+               
+               <button style="border-radius:100%;background:linear-gradient(135deg, #0099FF, #0037FF);border:solid 3px #001F91;      " onclick="soundBox()">
+                    <img src="Frame_2.png">
+               </button>
+          </div>
+     </div>
+     
+     <div class="container" id="container">
+          <div class="game-container">
+               <div class="game-board"></div>
+          </div>
+          
+          <div class="box-button">
+               <button onclick="restartNewGame()">Restart</button>
+          </div>
+     </div>
+
+
+<!--THE HOW TO PLAY SECTION--->
+     <div id="how-to-play">
+          <button onclick="goToMenu()" style="border-radius:100%;color:white;font-size:50px;text-shadow:3px 3px 0px rgba(0,0,0,0.3)">x</button>
+          <p><u>How to play</u></p>
+          <p id="text">Try flipping cards to see matching cards<br>
+          If two cards match, it is recorded and if they dont match, the cards are closed for you to try again<br>
+          </p>
+     </div>
+
+<div id="settings-container">
+          <div id="settings-box">
+               <div class="green">
+                    <p class="title">Settings</p>
+                    <div>
+                         <span>Sound - <label id="soundMessage">on</label></span>
+                         <span>
+                              <button onclick="onSound()" id="on-btn">on</button>
+                              <button onclick="offSound()" id="off-btn">off</button>
+                         </span>
+                    </div>               
+                             
+          <div>
+                    <span>Music - <label id="musicMessage">on</label></span>
+                    <span>
+                         <button onclick="onMusic()" id="on-btn">on</button>
+                         <button onclick="offMusic()" id="off-btn">off</button>
+                    </span>
+               </div>
+               
+               <div style="background:transparent">
+                    <button class="blue-btn">credits</button>
+               </div>
+               <br>
+               <br>
+               <br>
+          </div>
+          <div class="ipsum" style="width:70%;display:flex;justify-content:space-around;">               
+               <span>
+                    <button onclick="goToMenu()"><img src="menu-icon.png"></button>
+               </span>
+          </div>
+     </div>
+     </div>
+     
+<!-- PAUSE BOX --->
+    <!-- <div id="pause-box">
+          <p>PAUSED!</p>
+          <div class="pause-buttons">
+               <button style="background:linear-gradient(135deg, #8FFF33, #419100);border:solid 3px #2C6100;color:white;" onclick="resumeGame()">RESUME</button>
+               <button style="background:linear-gradient(135deg, #F8C822, #FFA200);border:solid 3px #FF8000;color:white;" onclick="goToMenu()">QUIT</button>
+          </div>
+     </div>
+     <div id="dark"></div>-->
+     
+<!--SOUND BOX--->
+<div id="dark"></div>
+<div id="sound-box">
+          <div id="settings-box">
+               <div class="green">
+                    <p class="title">Paused!</p>
+                    <div>
+                         <span>Sound - <label id="soundMessageTwo">on</label></span>
+                         <span>
+                              <button onclick="onSound()" id="on-btn">on</button>
+                              <button onclick="offSound()" id="off-btn">off</button>
+                         </span>
+                    </div>               
+                             
+               <div>
+                    <span>Music - <label id="musicMessageTwo">on</label></span>
+                    <span>
+                         <button onclick="onMusic()" id="on-btn">on</button>
+                         <button onclick="offMusic()" id="off-btn">off</button>
+                    </span>
+               </div>
+               
+              
+               <br>
+               <br>
+               <br>
+          </div>
+          <br>
+          <div class="ipsum" style="width:70%;display:flex;justify-content:space-around;">
+               <span class="x-span">
+                    <button onclick="removeSoundBox()" style="background:#EB3509;box-shadow:inset 5px 5px #EC855E;border:solid 5px #751D00;"><img src="x-btn.png"></button>
+               </span>               
+             <span class="x-span">
+                    <button onclick="goToMenu()" style="background:#EB3509;box-shadow:inset 5px 5px #EC855E;border:solid 5px #751D00;"><img src="menu-icon.png"></button>
+               </span>
+
+          </div>
+     </div>
+     </div>
+     
+     
+<!-- GAME OVER MESSAGE BOX --->
+<!--     <div id="gameOverBox">
+          <p style="background:black;padding:20px;border-radius:20% 30% 47% 42%">Game Over</p>
+          
+          <p style="font-size:40px" id="over-message">You win</p>
+          <button style="padding:20px;background:linear-gradient(135deg, #F8C822, #FFA200);border:solid 3px #FF8000;color:white;border-radius:20px;" onclick="restartNewGame()">New Game</button>
+     </div>-->
+
+     <!--GAME OVER BOX-->
+<div id="gameOverBox">
+<div class="green">
+          <p class="title" id="over-message" style="width:70%;margin-top:-2px;">game over
+          </p>
+          <div style="margin-bottom:60px;background:transparent;color:white;height:100px;display:flex;justify-content:space-evenly;margin-bottom:20px;">
+               <span><img src="coin.png" style="width:80px"></span>
+               <span style="font-size:100px" id="over-moves">0</span>
+          </div>
+
+          <!--<div style="margin-bottom:80px;background:white;color:black;">
+               <span>high score:</span>
+               <span style="font-size:30px">0</span>
+          </div>-->
+
+     </div>
+          <div class="ipsum" style="width:70%; margin-top:20px;">
+               <!--<span class="x-span">
+                    <button onclick="removePauseBox()" style="background:#EB3509;box-shadow:inset 5px 5px #EC855E;border:solid 5px #751D00;"><img src="x-btn.png"></button>
+               </span>-->
+               <span>
+                    <button onclick="restartNewGame()"><img src="restart-icon.png"></button>
+               </span>
+               <span>
+                    <button onclick="goToMenu()"><img src="menu-icon.png"></button>
+               </span>
+          </div>
+</div>
+<img src="back-lights.png" id="back-lights">
+
+
+<script src="script.js"></script>
+</body>
+</html>
